@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class IDGameLoop extends JPanel implements Runnable {
 	
 	private Thread thread;
@@ -84,8 +85,8 @@ public class IDGameLoop extends JPanel implements Runnable {
 			
 			if (System.currentTimeMillis() - lastTimer >= 1000) {
 				lastTimer += 1000;
-				tps = frames;
-				fps = ticks;
+				tps = ticks;
+				fps = frames;
 				frames = 0;
 				ticks = 0;
 			}
@@ -118,6 +119,16 @@ public class IDGameLoop extends JPanel implements Runnable {
 		
 		g2.dispose();
 	}
+
+	public int getFps() {
+		return fps;
+	}
+
+	public int getTps() {
+		return tps;
+	}
+	
+	
 	
 	
 	
